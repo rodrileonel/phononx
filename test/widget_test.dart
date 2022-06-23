@@ -8,11 +8,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:phononxchallenge/app.dart';
+import 'package:phononxchallenge/core/di.dart' as di;
 
 
 void main() {
+
+  setUpAll((){
+    di.init();
+  });
+
   testWidgets('Find textfield', (WidgetTester tester) async {
     await tester.pumpWidget(const App());
     expect(find.byKey(const Key('textfield')), findsOneWidget);
   });
+
 }
